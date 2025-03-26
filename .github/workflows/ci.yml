@@ -26,7 +26,8 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run pylint
-        run: python -m pylint --fail-under=7 app
+        run: |
+          python -m pylint --fail-under=7 app
           exitcode="$?"
           echo "exitcode=$exitcode" >> $GITHUB_OUTPUT
           exit "$exitcode"
