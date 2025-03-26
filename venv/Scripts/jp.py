@@ -1,4 +1,4 @@
-#!C:\Users\vikto\PycharmProjects\MyProject3\venv\Scripts\python.exe
+#!C:\Users\vikto\PycharmProjects\test-lab4\venv\Scripts\python.exe
 
 import sys
 import json

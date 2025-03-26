@@ -185,7 +185,8 @@ class EndpointDiscoveryManager:
         if not self._always_discover and not discovery_required:
             # Discovery set to only run on required operations
             logger.debug(
-                f'Optional discovery disabled. Skipping discovery for Operation: {operation}'
+                'Optional discovery disabled. Skipping discovery for Operation: %s'
+                % operation
             )
             return None
 
@@ -227,12 +228,12 @@ class EndpointDiscoveryHandler:
 
     def register(self, events, service_id):
         events.register(
-            f'before-parameter-build.{service_id}', self.gather_identifiers
+            'before-parameter-build.%s' % service_id, self.gather_identifiers
         )
         events.register_first(
-            f'request-created.{service_id}', self.discover_endpoint
+            'request-created.%s' % service_id, self.discover_endpoint
         )
-        events.register(f'needs-retry.{service_id}', self.handle_retries)
+        events.register('needs-retry.%s' % service_id, self.handle_retries)
 
     def gather_identifiers(self, params, model, context, **kwargs):
         endpoint_discovery = model.endpoint_discovery

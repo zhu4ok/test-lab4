@@ -1,0 +1,5 @@
+boto3==1.26.66
+pytest==7.2.0
+pytest-mock
+coverage
+pylint
