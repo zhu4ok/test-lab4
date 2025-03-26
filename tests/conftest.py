@@ -2,6 +2,12 @@ import pytest
 import boto3 
 from services.config import *
 from services.db import get_dynamodb_resource
+from dotenv import load_dotenv
+
+# Завантаження змінних середовища
+load_dotenv()
+print("AWS Access Key ID:", os.getenv("AWS_ACCESS_KEY_ID"))
+print("AWS Secret Access Key:", os.getenv("AWS_SECRET_ACCESS_KEY"))
 
 @pytest.fixture(scope="session", autouse=True)
 def setup_localstack_resources():
